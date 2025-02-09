@@ -53,7 +53,7 @@ npm install
 # Run the React app
 npm start
 ```
-The React app will run at `http://localhost:3000`
+The React app will run at `http://localhost:5173`
 
 ## 🎯 API Endpoints
 | Method | Endpoint       | Description         |
