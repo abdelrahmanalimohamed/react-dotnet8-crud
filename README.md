@@ -20,8 +20,8 @@ This project is a simple **CRUD application** built using **React (TypeScript) a
 ## 📂 Project Structure
 ```
 /MoviesApp
-│── frontend/     # React + TypeScript (UI & API calls)
-│── backend/      # .NET 8 Web API (CRUD endpoints, DB setup)
+│── Movies.Presentation/Client/movies.frontend/     # React + TypeScript (UI & API calls)
+│── Movies.Presentation/      # .NET 8 Web API (CRUD endpoints, DB setup)
 │── README.md     # Project documentation
 ```
 
