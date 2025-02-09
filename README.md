@@ -29,7 +29,7 @@ This project is a simple **CRUD application** built using **React (TypeScript) a
 
 ### 1️⃣ Clone the Repository
 ```sh
-git clone https://github.com/yourusername/react-dotnet8-crud.git
+git clone https://github.com/abdelrahmanalimohamed/react-dotnet8-crud.git
 cd react-dotnet8-crud
 ```
 
