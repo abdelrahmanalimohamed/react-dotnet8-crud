@@ -2,6 +2,6 @@
 using Movies.Domain.Entities;
 
 namespace Movies.Application.Queries.GetAllMovies;
-public record GetMoviesQuery : IRequest<IReadOnlyList<Movie>>
+public record GetMoviesQuery : IRequest<IReadOnlyList<MovieDto>>
 {
 }

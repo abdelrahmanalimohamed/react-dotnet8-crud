@@ -1,14 +1,14 @@
-﻿using MediatR;
+﻿using Mapster;
+using MediatR;
 using Movies.Application.AbstarctRepository;
-using Movies.Domain.Entities;
 
 namespace Movies.Application.Queries.GetAllMovies;
 public class GetMoviesHandler(IMovieRepository movieRepository)
-	: IRequestHandler<GetMoviesQuery, IReadOnlyList<Movie>>
+    : IRequestHandler<GetMoviesQuery, IReadOnlyList<MovieDto>>
 {
-	private readonly IMovieRepository movieRepository = movieRepository;
-	public async Task<IReadOnlyList<Movie>> Handle(GetMoviesQuery request, CancellationToken cancellationToken)
-	{
-		return await movieRepository.GetData(cancellationToken);
-	}
+    public async Task<IReadOnlyList<MovieDto>> Handle(GetMoviesQuery request, CancellationToken cancellationToken)
+    {
+        var movies =  await movieRepository.GetData(cancellationToken);
+        return movies.Adapt<IReadOnlyList<MovieDto>>();
+    }
 }

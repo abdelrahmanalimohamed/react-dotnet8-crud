@@ -1,5 +1,3 @@
 import { MovieDto } from "./movieDto";
 
-export interface GetMovieByIdResponse {
-  movieDto: MovieDto
-}
+export type GetMoviesResponse = MovieDto[];

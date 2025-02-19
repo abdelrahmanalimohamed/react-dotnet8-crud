@@ -6,18 +6,17 @@ namespace Movies.Infrastructure.Repository;
 public class MoviesRepository(MoviesDataBaseContext moviesDataBaseContext) 
 	: IMovieRepository
 {
-	private readonly MoviesDataBaseContext moviesDataBaseContext = moviesDataBaseContext ;
 	public async Task DeleteDate(int Id, CancellationToken cancellationToken)
 	{
 		var movie = await GetById(Id , cancellationToken);
 		 moviesDataBaseContext.Movies.Remove(movie);
-		await moviesDataBaseContext.SaveChangesAsync();
+		await moviesDataBaseContext.SaveChangesAsync(cancellationToken);
 	}
 	public async Task<Movie> GetById(int Id, CancellationToken cancellationToken)
 	{
 		var movie = await moviesDataBaseContext.Movies
 						.Where(x => x.Id == Id)
-						.FirstOrDefaultAsync();
+						.FirstOrDefaultAsync(cancellationToken);
 
 	  return movie ?? throw new KeyNotFoundException($"Movie with ID {Id} not found."); ;
 	}
@@ -37,7 +36,6 @@ public class MoviesRepository(MoviesDataBaseContext moviesDataBaseContext)
 		var existingMovie = await GetById(Id, cancellationToken);
 		if (existingMovie != null)
 		{
-			// Update the properties of the existing movie with the new values
 			moviesDataBaseContext.Entry(existingMovie).CurrentValues.SetValues(entity);
 			await moviesDataBaseContext.SaveChangesAsync(cancellationToken);
 		}

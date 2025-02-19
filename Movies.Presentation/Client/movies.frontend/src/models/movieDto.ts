@@ -4,4 +4,4 @@ export interface MovieDto {
        description: string | undefined;
        createDate: string | undefined;
        category: string;
-    }
+}

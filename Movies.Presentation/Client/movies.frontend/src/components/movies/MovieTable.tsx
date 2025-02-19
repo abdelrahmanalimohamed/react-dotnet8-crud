@@ -2,18 +2,19 @@ import { Container } from "semantic-ui-react";
 import { useState , useEffect } from "react";
 import { MovieDto } from "../../models/movieDto";
 import apiConnection from "../../api/apiConnector";
+import MovieTableItem  from "./MovieTableItem";
 
-export default function MovieTableItem() {
+export default function MovieTable() {
     const [movies, setMovies] = useState<MovieDto[]>([]);
 
     useEffect(() => {
         const fetchMovies = async () => {
             const fetchedMovies = await apiConnection.getMovies();
             setMovies(fetchedMovies);
-        }
-
+        };
         fetchMovies();
-    })
+    }, []);
+    
     return( 
     <>
      <Container className="container-style">
